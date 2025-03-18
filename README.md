@@ -1,6 +1,6 @@
 # User Management API 🚀  
 
-This is a **RESTful API** for managing users with **JWT authentication**. It supports **CRUD operations** (Create, Read, Update, Delete Users) and includes **role-based access control**.  
+This is a **RESTful API** for managing users with **JWT authentication**. It supports **CRUD operations** (Create, Read, Update, Delete Users).  
 
 ---
 
@@ -76,7 +76,7 @@ Server will run on **http://localhost:5000**
     "name": "John Doe",
     "email": "john@example.com",
     "password": "Password@123",
-    "role": "user"
+    "phonenumber": 12345677895
   }
   ```
 - **Response:**  
@@ -132,7 +132,7 @@ Server will run on **http://localhost:5000**
 ---
 
 ### 4️⃣ Get Single User (Protected)  
-- **URL:** `GET /api/users/:id`  
+- **URL:** `GET /api/users/profile`  
 - **Headers:** `Authorization: Bearer <token>`  
 - **Response:**  
   ```json
@@ -146,7 +146,7 @@ Server will run on **http://localhost:5000**
 ---
 
 ### 5️⃣ Update User (Protected)  
-- **URL:** `PUT /api/users/:id`  
+- **URL:** `PATCH /api/users/profile`  
 - **Headers:** `Authorization: Bearer <token>`  
 - **Request Body:**  
   ```json
@@ -164,8 +164,8 @@ Server will run on **http://localhost:5000**
 
 ---
 
-### 6️⃣ Delete User (Admin Only)  
-- **URL:** `DELETE /api/users/:id`  
+### 6️⃣ Delete User (Protected)  
+- **URL:** `DELETE /api/users/profile`  
 - **Headers:** `Authorization: Bearer <token>`  
 - **Response:**  
   ```json

@@ -93,15 +93,11 @@ const updateUser = async (req, res) => {
 
         const { email, password, phonenumber, name } = req.body;
 
-        if (!email || !password || !phonenumber || !name) {
-            return res.status(401).json({ message: "All fields are required" });
-        }
+        user.name = name || user.name;
+        user.email = email || user.email;
+        user.phonenumber = phonenumber || user.phonenumber;
 
-        user.name = req.body.name || user.name;
-        user.email = req.body.email || user.email;
-        user.phonenumber = req.body.phonenumber || user.phonenumber;
-
-        if (req.body.password) user.password = await bcrypt.hash(req.body.password, 10);
+        if (password) user.password = await bcrypt.hash(req.body.password, 10);
 
         await user.save();
 
